@@ -1,7 +1,11 @@
 @layer base {
+	*:focus {
+		outline: 0;
+		border: 0;
+	}
 	a {
 		@apply text-teal-800;
-		transition: 200ms;
+		transition: color 200ms;
 	}
 	a:hover {
 		@apply text-teal-600;
@@ -9,17 +13,25 @@
 	a:active {
 		@apply text-teal-400;
 	}
+	a:focus {
+		@apply font-bold;
+	}
 	h1 {
 		@apply text-6xl;
 		@apply font-light;
 		@apply text-teal-600;
 		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 	}
-	h2 {
-		@apply text-xl;
+	h2  {
+		@apply text-4xl;
+		@apply font-light;
+		@apply text-teal-600;
+		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 	}
 	h3 {
-		@apply text-lg;
+		@apply text-2xl;
+		@apply font-light;
+		@apply text-teal-600;
 	}
 	b {
 		@apply font-bold;
@@ -34,13 +46,13 @@
 }
 
 @layer components {
-	.pageify {
-		@apply px-16 sm:px-16 md:px-16 lg:px-64 xl:px-96 2xl:px-96;
-	}
+	/* -------------------------------- Main Body ------------------------------- */
 	.body {
 		position: absolute;
 		top: 60px;
 	}
+
+	/* ------------------------------ Account Link ------------------------------ */
 	.account-link {
 		@apply flex flex-row justify-center items-center;
 		margin: 0rem 0.5rem;
@@ -49,6 +61,87 @@
 		margin: 0rem 0.5rem;
 		width: 1rem;
 		height: 1rem;
+	}
+
+	/* --------------------------- Card-related Stuff --------------------------- */
+	.card-thumbnail {
+		background: red;
+	}
+
+	.card-thumbnail * {
+		width: 384px!important;
+		height: 216px!important;
+		display: flex!important;
+	}
+
+	.card-paragraph {
+		display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+		overflow: hidden;
+		max-height: 4.8rem;
+		line-height: 1.6rem;
+	}
+
+	@media (max-width: 768px) {
+		.card-thumbnail * {
+			width: 100%!important;
+			height: 100%!important;
+			display: flex!important;
+		}
+		.card-paragraph {
+			display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
+			max-height: 8rem;
+			line-height: 1.6rem;
+		}
+	}
+
+	/* -------------------------- Tooltip-related Stuff ------------------------- */
+	.tooltip-text {
+		z-index: 20;
+	}
+
+	.tech-icon-wrapper > svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	.tooltip {
+		@apply border;
+		position: absolute;
+		top: -2rem;
+		padding: 2px 8px;
+		background: #0c4a6e; /* Teal 900 */
+		border: #075985; /* Teal 800 */
+		border-radius: 0.25rem;
+		color: white;
+		opacity: 0;
+		transition: all 200ms ease-in-out;
+	}
+
+	.tooltip-ready {
+		top: -2.25rem;
+		opacity: 1;
+	}
+
+	/*
+		Button Ripple Effect:
+		https://codepen.io/BretCameron/pen/mdPMVaW
+	*/
+	span.ripple {
+		position: absolute;
+		left: 0;
+		border-radius: 100%;
+		transform: scale(0);
+		animation: ripple 500ms ease-in;
+		z-index: 0;
+	}
+
+	@keyframes ripple {
+		to {
+			transform: scale(4);
+			opacity: 0;
+		}
 	}
 }
 
@@ -83,24 +176,8 @@
 		font-variation-settings: "wght" 900;
 	}
 
-	/*
-		Button Ripple Effect:
-		https://codepen.io/BretCameron/pen/mdPMVaW
-	*/
-	span.ripple {
-		position: absolute;
-		left: 0;
-		border-radius: 100%;
-		transform: scale(0);
-		animation: ripple 500ms ease-in;
-		z-index: 0;
-	}
-
-	@keyframes ripple {
-		to {
-			transform: scale(4);
-			opacity: 0;
-		}
+	.pageify {
+		@apply px-16 sm:px-16 md:px-16 lg:px-32 xl:px-64 2xl:px-96;
 	}
 }
 
