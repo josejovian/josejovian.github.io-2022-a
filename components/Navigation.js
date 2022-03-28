@@ -45,6 +45,11 @@ function createRipple(event) {
 	button.appendChild(circle);
 }
 
+function highlightParent(event) {
+	const parent = event.currentTarget.parentElement;
+	parent.classList.toggle("bg-teal-100");
+}
+
 const Navigation = () => {
 	const router = useRouter();
 
@@ -56,18 +61,21 @@ const Navigation = () => {
 	}, []);
 
 	const linkElements = links.map((link) => {
+		const identifier = `navbar-link-${link.name}`;
+
 		function isActive() {
 			return router.pathname === link.link;
 		}
 
 		const baseLinkStyle =
-			"navbar-btn relative top-4 bottom-0 px-4 py-6 z-20 ";
+			"navbar-btn relative top-4 bottom-0 px-4 py-6 z-20 font-light ";
 
 		const highlightLinkStyle = baseLinkStyle + "font-bold text-cyan-700 ";
 
 		return (
 			<div
-				key={`navbar-link-${link.name}`}
+				key={identifier}
+				id={identifier}
 				className={`
 					navbar-wrapper-btn
 					relative
@@ -88,6 +96,8 @@ const Navigation = () => {
 						className={
 							isActive() ? highlightLinkStyle : baseLinkStyle
 						}
+						onFocus={highlightParent}
+						onBlur={highlightParent}
 					>
 						{link.name}
 					</a>
