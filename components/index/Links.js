@@ -3,10 +3,12 @@ import Link from "next/link";
 
 const links = [{
 	icon: <SiGithub />,
+	type: "github",
 	name: "josejovian",
 	link: "https://github.com/josejovian"
 }, {
 	icon: <SiLinkedin />,
+	type: "linkedin",
 	name: "josejovian",
 	link: "https://www.linkedin.com/in/josejovian/"
 }];
@@ -14,7 +16,7 @@ const links = [{
 const Links = () => {
 	const linkElements = links.map((link) => {
 		return (
-			<Link key={`profile-link-${link.name}`} href={link.link}>
+			<Link key={`profile-link-${link.type}`} href={link.link}>
 				<a className="account-link" target="_blank">
 					{ link.icon }
 					{ link.name }
