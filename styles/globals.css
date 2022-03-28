@@ -74,6 +74,10 @@
 		display: flex!important;
 	}
 
+	/*
+		Source:
+		https://stackoverflow.com/a/15175769
+	*/
 	.card-paragraph {
 		display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
 		text-overflow: ellipsis;
