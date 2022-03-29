@@ -64,10 +64,6 @@
 	}
 
 	/* --------------------------- Card-related Stuff --------------------------- */
-	.card-thumbnail {
-		background: red;
-	}
-
 	.card-thumbnail * {
 		width: 384px!important;
 		height: 216px!important;
@@ -78,11 +74,20 @@
 		Source:
 		https://stackoverflow.com/a/15175769
 	*/
-	.card-paragraph {
-		display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+	.limit-text {
 		text-overflow: ellipsis;
 		word-wrap: break-word;
 		overflow: hidden;
+	}
+
+	.card-title {
+		display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+		max-height: 4.8rem;
+		line-height: 1.6rem;
+	}
+
+	.card-paragraph {
+		display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
 		max-height: 4.8rem;
 		line-height: 1.6rem;
 	}
@@ -181,7 +186,7 @@
 	}
 
 	.pageify {
-		@apply px-16 sm:px-16 md:px-16 lg:px-32 xl:px-64 2xl:px-96;
+		@apply px-8 sm:px-16 md:px-16 lg:px-32 xl:px-64 2xl:px-96;
 	}
 }
 
