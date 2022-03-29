@@ -60,17 +60,17 @@ const Navigation = () => {
 		}
 	}, []);
 
+	const baseLinkStyle =
+	"navbar-btn relative top-4 bottom-0 px-4 py-6 z-20 font-light ";
+
+	const highlightLinkStyle = baseLinkStyle + "font-bold text-cyan-700 ";
+
 	const linkElements = links.map((link) => {
 		const identifier = `navbar-link-${link.name}`;
 
 		function isActive() {
 			return router.pathname === link.link;
 		}
-
-		const baseLinkStyle =
-			"navbar-btn relative top-4 bottom-0 px-4 py-6 z-20 font-light ";
-
-		const highlightLinkStyle = baseLinkStyle + "font-bold text-cyan-700 ";
 
 		return (
 			<div
@@ -114,8 +114,8 @@ const Navigation = () => {
 				w-screen border-b border-gray-200 bg-white overflow-hidden z-20`
 			}
 		>
-			<div className="flex flex-row align-center justify-between w-full h-full">
-				<div className='self-center py-4 font-["Nunito"] font-semibold text-xl h-min'>
+			<div className="flex flex-row align-center justify-between w-full h-full text-sm sm:text-base">
+				<div className='self-center py-4 font-["Nunito"] font-semibold h-min'>
 					josejovian
 				</div>
 				<div className="flex overflow-hidden">{linkElements}</div>
