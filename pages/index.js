@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Featured from "../components/index/Featured";
 import Links from "../components/index/Links";
-import PageHead from "../components/PageHead";
+import PageHead from "../components/page/PageHead";
 import SEO from "../components/SEO";
 import styles from "../styles/Home.module.css";
 

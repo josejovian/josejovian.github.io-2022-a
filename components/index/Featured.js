@@ -1,5 +1,5 @@
-import FeaturedCard from "../FeaturedCard";
-import Block from "../Block";
+import FeaturedCard from "./FeaturedCard";
+import Block from "../page/Block";
 
 const projects = [
 	{

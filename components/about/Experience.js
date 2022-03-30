@@ -1,4 +1,4 @@
-import Block from "../Block";
+import Block from "../page/Block";
 import ParagraphList from "../ParagraphList";
 
 const list = [

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
-import Tooltip from "./Tooltip";
-import Tech, { TechElements } from "./Tech";
+import Tooltip from "../Tooltip";
+import Tech, { TechElements } from "../Tech";
 
 const FeaturedCard = ({ id, name, techs, overview }) => {
 
