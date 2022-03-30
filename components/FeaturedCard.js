@@ -18,11 +18,11 @@ const FeaturedCard = ({ id, name, techs, overview }) => {
 				/>
 			</div>
 			<div className="card-detail flex flex-col px-8 py-8">
-				<h3>{ name }</h3>
+				<h3 className="limit-text card-title">{ name }</h3>
 				<div className="flex flex-row mt-2">
 					<TechElements name={name} techs={techs} />
 				</div>
-				<p className="card-paragraph mt-2">
+				<p className="limit-text card-paragraph paragraph mt-2">
 					{ overview }
 				</p>
 			</div>
