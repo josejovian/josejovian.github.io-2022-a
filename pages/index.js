@@ -44,7 +44,7 @@ export const Home = ({ featured }) => {
 	);
 }
 
-export const getStaticProps = async (req) => {
+export const getServerSideProps = async (req) => {
 	const { getProjects, extractDataFromProjects } = require("../lib/mdx");
 
 	const projects = await getProjects();

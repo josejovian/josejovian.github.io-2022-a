@@ -45,21 +45,7 @@ const Project = ({ code, frontmatter }) => {
 	);
 };
 
-export const getStaticPaths = async () => {
-	const { getProjects } = require("../../lib/mdx");
-	const projects = await getProjects();
-
-	return {
-		paths: projects.map((project) => ({
-			params: {
-				id: project.replace(/\.md/, ""),
-			},
-		})),
-		fallback: false,
-	};
-};
-
-export const getStaticProps = async (req) => {
+export const getServerSideProps = async (req) => {
 	const { id } = req.params;
 	const { getProject } = require("../../lib/mdx");
 	
