@@ -17,15 +17,8 @@ function iconFromName(name) {
 const Links = ({ links }) => {
 	const linkElements = links.map((link) => {
 		const icon = iconFromName(link.type);
-		const { name, _link } = link; 
 		return (
-			// <Link key={`profile-link-${link.type}`} href={link.link || "#"}>
-			// 	<a className="account-link" target="_blank">
-			// 		{ iconFromName(link.type) }
-			// 		{ link.name }
-			// 	</a>
-			// </Link>
-			<IconLink key={`profile-link-${link.type}`} icon={icon} name={name} link={_link} />
+			<IconLink key={`profile-link-${link.type}`} icon={icon} name={link.name} link={link.link} />
 		);
 	});
 
