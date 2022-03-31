@@ -1,4 +1,4 @@
-import { SiReact, SiFirebase, SiRedux, SiNextdotjs } from "react-icons/si";
+import { SiReact, SiFirebase, SiRedux, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb } from "react-icons/si";
 import Tooltip from "./Tooltip";
 
 const TechIcon = ({ tech }) => {
@@ -11,6 +11,12 @@ const TechIcon = ({ tech }) => {
 			return <SiFirebase />
 		case "nextjs":
 			return <SiNextdotjs />
+		case "nodejs":
+			return <SiNodedotjs />
+		case "express":
+			return <SiExpress />
+		case "mongodb":
+			return <SiMongodb />
 		default:
 			return <></>
 	}

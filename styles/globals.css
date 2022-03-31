@@ -10,32 +10,42 @@
 	a:hover {
 		@apply text-teal-600;
 	}
-	a:active {
+	a:active{
 		@apply text-teal-400;
 	}
 	a:focus {
 		@apply font-bold;
 	}
 	h1 {
-		@apply text-6xl;
-		@apply font-light;
-		@apply text-teal-600;
+		@apply text-6xl font-light text-teal-600;
 		text-align: center;
 		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 	}
 	h2  {
-		@apply text-4xl;
-		@apply font-light;
-		@apply text-teal-600;
+		@apply text-4xl font-light text-teal-600 mt-16 mb-4;
 		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 	}
 	h3 {
-		@apply text-2xl;
-		@apply font-light;
-		@apply text-teal-600;
+		@apply text-2xl font-light text-teal-600 my-4;
 	}
-	b {
+	p {
+		@apply paragraph mt-4;
+	}
+	.paragraph {
+		@apply font-light text-base text-gray-600 mt-0;
+	}
+	p a {
+		@apply underline;
+	}
+	b, strong {
 		@apply font-bold;
+	}
+	ul {
+		@apply ml-8 paragraph;
+		list-style-type: disc;
+	}
+	ul li {
+		@apply my-2;
 	}
 }
 
@@ -61,7 +71,7 @@
 		@apply my-2 font-light text-sm;
 	}
 
-	.paragraph b {
+	.paragraph b, .paragraph strong {
 		@apply font-medium;
 	}
 
@@ -77,6 +87,12 @@
 	}
 
 	/* --------------------------- Card-related Stuff --------------------------- */
+	a .card {
+		@apply text-black transition-colors font-normal
+	}
+	a:hover .card {
+		@apply bg-teal-50
+	}
 	.card-thumbnail * {
 		width: 384px!important;
 		height: 216px!important;
@@ -106,6 +122,10 @@
 		-webkit-line-clamp: 3;
 		max-height: 4.8rem;
 		line-height: 1.6rem;
+	}
+
+	.card h3, .paragraph-entry h3 {
+		margin: 0;
 	}
 
 	@media (max-width: 768px) {
@@ -173,9 +193,6 @@
 @tailwind components;
 
 @layer utilities {
-	.paragraph {
-		@apply font-light text-base text-gray-600;
-	}
 	.font-thin {
 		font-variation-settings: "wght" 100;
 	}

@@ -1,6 +1,6 @@
 const Block = ({ children }) => {
 	return (
-		<div className="flex flex-col justify-center items-center text-center mt-16">
+		<div className="flex flex-col justify-center items-center text-center">
 			{ children }
 		</div>
 	);
