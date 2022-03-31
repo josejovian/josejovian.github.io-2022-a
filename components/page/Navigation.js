@@ -69,6 +69,9 @@ const Navigation = () => {
 		const identifier = `navbar-link-${link.name}`;
 
 		function isActive() {
+			if(router.pathname.includes("project") && link.link.includes("project"))
+				return true;
+		
 			return router.pathname === link.link;
 		}
 
