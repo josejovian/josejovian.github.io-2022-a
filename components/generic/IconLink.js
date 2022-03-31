@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const IconLink = ({ icon, link="#", name }) => {
+const IconLink = ({ icon, link, name }) => {
 	return (
-		<Link href={link}>
+		<Link href={link || "#"}>
 			<a className="account-link" target="_blank">
 				{ icon }
 				{ name }
