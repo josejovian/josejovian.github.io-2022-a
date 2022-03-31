@@ -11,7 +11,6 @@ export default function About() {
 		<>
 			<SEO
 				templateTitle="about"
-				description="An undergraduate computer science student, and an aspiring front end developer. Simply a website to showcase the projects I've built to test the knowledge I obtain."
 			/>
 			<PageHead
 				title={
