@@ -1,0 +1,27 @@
+---
+id: disclone
+title: Disclone
+published: '2021-03-17'
+techs: ["react", "redux", "firebase"]
+overview: A personal project I've done to practice Firebase.
+demo: https://advantageous-handle-91a30.netlify.app
+repo: https://github.com/josejovian/disclone
+featured: false
+---
+
+## Project Overview
+
+This project is my attempt to solve the [challenge to create a full-stack application from DevChallenges](https://devchallenges.io/challenges/wP0LbGgEeKhpFHUpPpDh). I also have made sure to complete all the user stories. Despite the fact that I used only React and Firebase, I think my attempt is still somehow decent.
+
+Disclone is essentially a chatting application, where users can send and read messages in a text channel, or even create a new text channel. To access these features, the users must first be logged in.
+
+## Tech Stacks and Libraries
+
+This project uses React, and Firebase. I also used Chakra UI for the styling.
+
+## Highlighted Features
+
+### Real-Time Chat
+
+In order to implement this, I simply used this [specific feature of Firebase](https://firebase.google.com/docs/database/web/read-and-write#web_value_events). When changes occur, the state to save messages are simply updated.
+In other words, when a new message is being sent on a specific channel, only the users who are in the current channel will see the redux state update.
