@@ -6,10 +6,12 @@ import PageHead from "../../components/page/PageHead";
 import { TechElements } from "../../components/Tech";
 import Links from "../../components/generic/Links";
 import SEO from "../../components/SEO";
+import Image from "next/image";
+import { useEffect } from "react";
 
 const Project = ({ code, frontmatter }) => {
 
-	const { title, techs, overview, repo, demo } = frontmatter;
+	const { id, title, techs, overview, repo, demo } = frontmatter;
 
 	const Component = useMemo(() => getMDXComponent(code), [code])
 
@@ -40,6 +42,13 @@ const Project = ({ code, frontmatter }) => {
 					overview
 				}
 			/>
+			<div className="image">
+				<Image
+					width="1280"
+					height="720"
+					src={`/projects/${id}.png`}
+				/>
+			</div>
 			<Component />
 		</>
 	);
