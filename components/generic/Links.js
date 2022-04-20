@@ -16,6 +16,10 @@ function iconFromName(name) {
 
 const Links = ({ links }) => {
 	const linkElements = links.map((link) => {
+		if(!link.link) {
+			return <></>
+		}
+		
 		const icon = iconFromName(link.type);
 		return (
 			<IconLink key={`profile-link-${link.type}`} icon={icon} name={link.name} link={link.link} />
