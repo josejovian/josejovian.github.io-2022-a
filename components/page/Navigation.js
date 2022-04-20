@@ -111,7 +111,7 @@ const Navigation = () => {
 
 	return (
 		<div
-			className={"pageify flex align-center justify-center fixed top-0 w-screen border-b border-gray-200 bg-white overflow-hidden z-20"}
+			className={"pageify flex align-center justify-center fixed top-0 w-full border-b border-gray-200 bg-white overflow-hidden z-20"}
 		>
 			<div className="flex flex-row align-center justify-between w-full h-full text-sm sm:text-base">
 				<div className='self-center py-4 font-["Nunito"] font-semibold h-min'>
