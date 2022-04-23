@@ -25,7 +25,7 @@ export const Home = ({ featured }) => {
 			<PageHead
 				title={
 					<>
-						Hey! <b>Jose</b> here.
+						Hey! Jose here.
 					</>
 				}
 				addon={<Links links={links} />}
