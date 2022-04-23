@@ -4,50 +4,46 @@
 }
 
 @layer base {
+	/* Remove focus border */
 	*:focus {
 		outline: 0;
 		border: 0;
+		-webkit-font-smoothing: antialiased;
 	}
+
+	/* Links */
 	a {
-		@apply text-teal-800;
+		@apply text-teal-800 border-teal-800;
 		transition: color 200ms;
 	}
 	a:hover {
-		@apply text-teal-600;
+		@apply text-teal-600 border-teal-800;
 	}
-	a:active{
-		@apply text-teal-400;
+	a:active, a:focus {
+		@apply text-teal-500 border-teal-800;
 	}
-	a:focus {
-		@apply font-bold;
-	}
+
+	/* Headers */
 	h1 {
-		@apply text-6xl font-light text-teal-600;
-		text-align: center;
-		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+		@apply font-complete font-bold text-center text-6xl text-teal-600;
 	}
-	h2  {
-		@apply text-4xl font-light text-teal-600 mt-16 mb-4;
-		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+	h2 {
+		@apply font-complete font-bold text-center text-4xl text-teal-600 mt-16 mb-4;
 	}
 	h3 {
-		@apply text-2xl font-light text-teal-600 my-4;
+		@apply text-2xl font-bold text-teal-600 my-4;
 	}
+
+	/* Paragraphs */
 	p {
 		@apply paragraph mt-4 font-complete;
 	}
-	.paragraph {
-		@apply text-justify font-light;
-		color: #111111;
-		font-size: 1rem;
-		line-height: 1.6rem;
-	}
-	p a {
-		@apply underline;
-	}
-	b, strong {
+	p b,
+	p strong {
 		@apply font-bold;
 	}
+
+	/* Lists */
 	ul {
 		@apply ml-8 paragraph;
 		list-style-type: disc;
@@ -61,20 +57,74 @@
 @tailwind base;
 
 @layer components {
-	/* -------------------------------- Main Body ------------------------------- */
+	/* -------------------------------------------------------------------------- */
+	/*                                   GENERIC                                  */
+	/* -------------------------------------------------------------------------- */
+
+	/* Navbar component */
+	.navbar-link {
+		@apply relative top-4 bottom-0 px-4 py-6 z-20;
+	}
+
+	#navbar-wrapper {
+		transition: all 0.5s ease;
+	}
+
+	#navbar .navbar-link-active {
+		@apply navbar-link text-teal-300;
+	}
+
+	#navbar a {
+		@apply text-white;
+	}
+
+	/*
+		Button Ripple Effect:
+		https://codepen.io/BretCameron/pen/mdPMVaW
+	*/
+	span.ripple {
+		position: absolute;
+		left: 0;
+		border-radius: 100%;
+		transform: scale(0);
+		animation: ripple 500ms ease-in;
+		z-index: 0;
+	}
+
+	@keyframes ripple {
+		to {
+			transform: scale(4);
+			opacity: 0;
+		}
+	}
+
+	/* Inside page body */
 	.body {
 		position: absolute;
 		top: 60px;
 	}
 
-	.font-complete {
-		font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+	.paragraph {
+		@apply text-justify;
+		color: black;
+		font-size: 17px;
+		line-height: 1.7;
 	}
 
 	.font-heading {
 		@apply font-complete;
 	}
 
+	.image {
+		@apply mt-16;
+	}
+
+	.image img {
+		border: 1px solid #e5e7eb !important;
+		@apply rounded-lg;
+	}
+
+	/* Page head component */
 	.page-head-desc {
 		@apply mt-4 font-light text-center font-complete;
 	}
@@ -83,20 +133,6 @@
 		@apply my-2 font-light text-sm;
 	}
 
-	.paragraph b, .paragraph strong {
-		@apply font-medium;
-	}
-
-	.image {
-		@apply mt-16;
-	}
-
-	.image img {
-		border: 1px solid #e5e7eb!important;
-		@apply rounded-lg
-	}
-
-	/* ------------------------------- Header Link ------------------------------ */
 	.header-link {
 		@apply flex flex-row justify-center items-center;
 		margin: 0rem 0.5rem;
@@ -106,66 +142,65 @@
 		width: 1.6rem;
 		height: 1.6rem;
 	}
-	.link-invert {
-		@apply bg-cyan-200;
-	}
 
-	/* --------------------------- Card-related Stuff --------------------------- */
+	/* Card component */
 	a .card {
-		@apply text-black transition-colors font-normal
-	}
-	a:hover .card {
-		@apply bg-teal-50
-	}
-	.card-thumbnail * {
-		width: 384px!important;
-		height: 216px!important;
-		display: flex!important;
+		@apply text-black transition-all font-normal;
 	}
 
-	/*
-		Source:
-		https://stackoverflow.com/a/15175769
-	*/
-	.limit-text {
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		text-overflow: ellipsis;
-		word-wrap: break-word;
-		overflow: hidden;
+	a:hover .card {
+		@apply bg-teal-50 shadow-md;
+	}
+
+	:is(a:active, a:focus) .card {
+		@apply bg-teal-100;
+	}
+
+	.card-thumbnail * {
+		width: 384px !important;
+		height: 216px !important;
+		display: flex !important;
 	}
 
 	.card-title {
-		-webkit-line-clamp: 1; 
+		-webkit-line-clamp: 1;
 		max-height: 4.8rem;
 		line-height: 1.6rem;
 	}
 
 	.card-paragraph {
-		@apply paragraph;
+		@apply paragraph font-light;
 		-webkit-line-clamp: 3;
-		max-height: 4.8rem;
+		height: 4.8rem;
 		line-height: 1.6rem;
 	}
 
-	.card h3, .paragraph-entry h3 {
+	.card h3,
+	.paragraph-entry h3 {
 		margin: 0;
+	}
+
+	.card-thumbnail-vertical * {
+		width: 100% !important;
+		height: 100% !important;
+		display: flex !important;
 	}
 
 	@media (max-width: 768px) {
 		.card-thumbnail * {
-			width: 100%!important;
-			height: 100%!important;
-			display: flex!important;
+			width: 100% !important;
+			height: 100% !important;
+			display: flex !important;
 		}
 		.card-paragraph {
 			-webkit-line-clamp: 5;
+			height: auto;
 			max-height: 8rem;
 			line-height: 1.6rem;
 		}
 	}
 
-	/* -------------------------- Tooltip-related Stuff ------------------------- */
+	/* Tooltip component */
 	.tooltip-text {
 		z-index: 20;
 	}
@@ -193,24 +228,69 @@
 		opacity: 1;
 	}
 
-	/*
-		Button Ripple Effect:
-		https://codepen.io/BretCameron/pen/mdPMVaW
-	*/
-	span.ripple {
-		position: absolute;
-		left: 0;
-		border-radius: 100%;
-		transform: scale(0);
-		animation: ripple 500ms ease-in;
-		z-index: 0;
+	/* -------------------------------------------------------------------------- */
+	/*                                  PROJECTS                                  */
+	/* -------------------------------------------------------------------------- */
+
+	/* Force headers and pragraphs to the left instead of center */
+	#body-markdown :is(h1, h2, h3, .page-head-desc) {
+		@apply text-left;
 	}
 
-	@keyframes ripple {
-		to {
-			transform: scale(4);
-			opacity: 0;
-		}
+	#body-markdown :is(a, a:hover, a:active, a:focus) {
+		border-bottom: 1px solid;
+		transition: all 200ms;
+	}
+
+	#body-markdown :is(a, a:hover) {
+		@apply text-teal-600;
+	}
+
+	#body-markdown :is(a:active, a:focus) {
+		@apply bg-teal-100;
+	}
+
+	/* Sidebar (only for Project pages) */
+	#sidebar {
+		@apply fixed flex flex-col h-screen border-l border-gray-200 bg-gray-100;
+		position: fixed !important;
+		top: 0 !important;
+		right: 0 !important;
+		padding-top: 8rem;
+		padding-left: 2rem;
+		width: 25vw;
+	}
+
+	#sidebar a {
+		@apply mt-1 mb-1;
+	}
+
+	#sidebar a:first-child {
+		@apply mt-0;
+	}
+
+	/*
+		Change the offset of the header when clicking anchor links
+		Source: https://stackoverflow.com/a/24298427
+	*/
+	.head-anchor::before {
+		content: "";
+		display: block;
+		height: 120px;
+		margin-top: -120px;
+		visibility: hidden;
+	}
+
+	/*
+		Limits the number of line in a text.
+		Source: https://stackoverflow.com/a/15175769
+	*/
+	.limit-text {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+		overflow: hidden;
 	}
 }
 
@@ -246,6 +326,16 @@
 	}
 	.pageify {
 		@apply px-8 sm:px-16 md:px-16 lg:px-32 xl:px-64 2xl:px-96;
+		transition: all 0.5s ease;
+	}
+	.pageify-blog {
+		@apply px-8 sm:px-8 md:px-8 lg:px-16 xl:px-16 2xl:px-32;
+		transition: all 0.5s ease;
+	}
+	.font-complete {
+		font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+			Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+			Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 	}
 }
 

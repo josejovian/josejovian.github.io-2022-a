@@ -1,7 +1,8 @@
+import AnimatedDiv from "../generic/AnimatedDiv";
 import Card from "../generic/Card";
 import Block from "../page/Block";
 
-const Featured = ({ featured=[] }) => {
+const Featured = ({ featured = [] }) => {
 	const featuredElement = featured.map((feat) => {
 		return <Card key={feat.title} {...feat} />;
 	});
@@ -9,7 +10,7 @@ const Featured = ({ featured=[] }) => {
 	return (
 		<Block>
 			<h2>Featured Projects</h2>
-			<div>{featuredElement}</div>
+			<AnimatedDiv>{featuredElement}</AnimatedDiv>
 		</Block>
 	);
 };

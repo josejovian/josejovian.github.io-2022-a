@@ -34,7 +34,7 @@ function createRipple(event) {
 	circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
 	circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
 	circle.classList.add("ripple");
-	circle.classList.add("bg-teal-100");
+	circle.classList.add("bg-teal-700");
 
 	const ripple = button.getElementsByClassName("ripple")[0];
 
@@ -47,7 +47,7 @@ function createRipple(event) {
 
 function highlightParent(event) {
 	const parent = event.currentTarget.parentElement;
-	parent.classList.toggle("bg-teal-100");
+	parent.classList.toggle("bg-teal-900");
 }
 
 const Navigation = () => {
@@ -59,11 +59,6 @@ const Navigation = () => {
 			button.addEventListener("click", createRipple);
 		}
 	}, []);
-
-	const baseLinkStyle =
-	"navbar-btn relative top-4 bottom-0 px-4 py-6 z-20 font-light ";
-
-	const highlightLinkStyle = baseLinkStyle + "font-bold text-cyan-700 ";
 
 	const linkElements = links.map((link) => {
 		const identifier = `navbar-link-${link.name}`;
@@ -83,13 +78,13 @@ const Navigation = () => {
 					navbar-wrapper-btn
 					relative
 					transition-colors duration-600
-					hover:bg-teal-50 active:bg-teal-100
+					hover:bg-teal-700 active:bg-teal-700
 				`}
 			>
 				{isActive() && (
 					<motion.span
 						layoutId="navbar"
-						className="absolute left-0 bottom-0 w-full h-0.5 bg-cyan-700 z-30"
+						className="absolute left-0 bottom-0 w-full h-1 bg-teal-400 z-30"
 						transition={{ duration: 0.6, type: "tween" }}
 						animate
 					></motion.span>
@@ -97,7 +92,7 @@ const Navigation = () => {
 				<Link href={link.link}>
 					<a
 						className={
-							isActive() ? highlightLinkStyle : baseLinkStyle
+							isActive() ? "navbar-link-active" : "navbar-link"
 						}
 						onFocus={highlightParent}
 						onBlur={highlightParent}
@@ -111,10 +106,11 @@ const Navigation = () => {
 
 	return (
 		<div
-			className={"pageify flex align-center justify-center fixed top-0 w-full border-b border-gray-200 bg-white overflow-hidden z-20"}
+			id="navbar-wrapper"
+			className="pageify flex align-center justify-center fixed top-0 w-full border-b border-gray-200 shadow-sm bg-gray-800 overflow-hidden z-20"
 		>
-			<div className="flex flex-row align-center justify-between w-full h-full text-sm sm:text-base">
-				<div className='self-center py-4 font-["Nunito"] font-semibold h-min'>
+			<div id="navbar" className="flex flex-row align-center justify-between w-full h-full text-sm sm:text-base">
+				<div className='self-center py-4 h-min font-["Nunito"] font-semibold text-white'>
 					josejovian
 				</div>
 				<div className="flex overflow-hidden">{linkElements}</div>
