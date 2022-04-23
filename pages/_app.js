@@ -3,20 +3,38 @@ import Navigation from "../components/page/Navigation";
 import Footer from "../components/page/Footer";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
+import { animVariants } from "../components/generic/AnimatedDiv";
 
 function MyApp({ Component, pageProps }) {
 	const link = useRouter();
+
+	useEffect(() => {
+		setTimeout(() => {
+			const pageify = document.querySelectorAll(".pageify");
+			const footer = document.getElementById("footer");
+
+			// Adjust components for individual project pages.
+			if (link.pathname.includes("/project/")) {
+				pageify.forEach((component) => {
+					component.classList.add("pageify-blog");
+				});
+				footer.classList.add("w-4/6");
+			
+			// Re-adjust components when user stops viewing individual project pages.
+			} else {
+				pageify.forEach((component) => {
+					component.classList.remove("pageify-blog");
+				});
+				footer.classList.remove("w-4/6");
+			}
+		}, 300);
+	});
 
 	/*
 		Source:
 		https://wallis.dev/blog/nextjs-page-transitions-with-framer-motion
 	*/
-
-	const variants = {
-		hidden: { opacity: 0, x: -200, y: 0 },
-		enter: { opacity: 1, x: 0, y: 0 },
-		exit: { opacity: 0, x: 0, y: 0 },
-	};
 
 	return (
 		<>
@@ -28,7 +46,7 @@ function MyApp({ Component, pageProps }) {
 					onExitComplete={() => window.scrollTo(0, 0)}
 				>
 					<motion.div
-						variants={variants} // Pass the variant object into Framer Motion
+						variants={animVariants} // Pass the variant object into Framer Motion
 						initial="hidden" // Set the initial state to variants.hidden
 						animate="enter" // Animated state to variants.enter
 						exit="exit" // Exit state (used later) to variants.exit
