@@ -30,7 +30,6 @@ function MyApp({ Component, pageProps }) {
 			}
 		}, 300);
 	});
-
 	/*
 		Source:
 		https://wallis.dev/blog/nextjs-page-transitions-with-framer-motion
@@ -39,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Navigation />
-			<div className="body pageify w-full py-16">
+			<div id="body" className="body pageify w-full py-16 overflow-x-hidden">
 				<AnimatePresence
 					exitBeforeEnter
 					initial={false}
