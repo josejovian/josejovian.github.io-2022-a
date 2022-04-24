@@ -1,17 +1,24 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Anchor from "./Anchor";
 
 const Side = ({ table }) => {
 	const linkElements = table.map((head, idx) => {
-		const sectionElements = head.subsections.map((sub, idx) => (
-			<Anchor head={sub} depth="2" />
-		));
-
-		return (
+		const sectionElements = head.subsections.map((sub, idx) => {
+			return (
+				<Anchor key={sub.name} head={sub} depth="2" />
+			);
+		});
+		
+		const OneLink = () => (
 			<>
 				<Anchor head={head} depth="1" />
 				{sectionElements}
 			</>
+		);
+
+		return (
+			<OneLink key={head.name} />
 		);
 	});
 
