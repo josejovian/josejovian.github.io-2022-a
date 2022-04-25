@@ -13,6 +13,7 @@ import Links from "../../components/generic/Links";
 import SEO from "../../components/SEO";
 import Side from "../../components/project/Side";
 import ReactDOM from "react-dom";
+import ProjectHead from "../../components/project/ProjectHead";
 
 const Project = ({ code, frontmatter }) => {
 	const { id, title, techs, overview, repo, demo } = frontmatter;
@@ -89,7 +90,7 @@ const Project = ({ code, frontmatter }) => {
 		<>
 			<div id="body-markdown" className="w-4/6">
 				<SEO templateTitle={title} description={overview} />
-				<PageHead title={title} description={overview} />
+				<ProjectHead project={frontmatter} />
 				<div className="image">
 					<Image
 						width="1280"
