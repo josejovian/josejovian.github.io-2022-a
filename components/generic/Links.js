@@ -4,7 +4,7 @@ import Link from "next/link";
 import IconLink from "./IconLink";
 
 function iconFromName(name) {
-	switch(name) {
+	switch (name) {
 		case "linkedin":
 			return <SiLinkedin />;
 		case "github":
@@ -14,22 +14,37 @@ function iconFromName(name) {
 	}
 }
 
-const Links = ({ links }) => {
-	const linkElements = links.map((link) => {
-		if(!link.link) {
-			return <></>
+const Links = ({ links, align = "center" }) => {
+	const linkElements = links.map((link, idx) => {
+		if (!link.link) {
+			return <></>;
 		}
-		
+
 		const icon = iconFromName(link.type);
 		return (
-			<IconLink key={`profile-link-${link.type}`} icon={icon} name={link.name} link={link.link} />
+			<IconLink
+				key={`profile-link-${link.type}`}
+				idx={idx}
+				align={align}
+				icon={icon}
+				name={link.name}
+				link={link.link}
+			/>
 		);
 	});
 
+	const alignClasses =
+		align === "center"
+			? "justify-center items-center text-center "
+			: "justify-start items-start text-left ";
+
 	return (
-		<div className="flex flex-row justify-center items-center mt-6 text-center">
-			{ linkElements }
-		</div>	
+		<div
+			id="links-wrapper"
+			className={"flex flex-row mt-6 " + alignClasses}
+		>
+			{linkElements}
+		</div>
 	);
 };
 
