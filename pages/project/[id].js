@@ -69,7 +69,7 @@ const Project = ({ code, frontmatter }) => {
 			if (head.tagName === "H3") {
 				section.subsections.push({
 					name: head.innerText,
-					link: lineify(head.innerText)
+					link: lineify(head.innerText),
 				});
 			}
 
@@ -108,7 +108,21 @@ const Project = ({ code, frontmatter }) => {
 	);
 };
 
-export const getServerSideProps = async (req) => {
+export const getStaticPaths = async () => {
+	const { getProjects } = require("../../lib/mdx");
+
+	const projects = await getProjects();
+
+	return {
+		paths: projects.map((project) => ({
+			params: {
+				id: project.replace(".mdx", ""),
+			},
+		})),
+		fallback: false,
+	};
+};
+export const getStaticProps = async (req) => {
 	const { id } = req.params;
 	const { getProject } = require("../../lib/mdx");
 
@@ -128,6 +142,7 @@ export const getServerSideProps = async (req) => {
 
 	return {
 		props: { ...result },
+		revalidate: 300,
 	};
 };
 
