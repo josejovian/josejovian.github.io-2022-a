@@ -1,5 +1,5 @@
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
+import { FiLink } from "react-icons/fi";
 import Link from "next/link";
 import IconLink from "./IconLink";
 
@@ -10,11 +10,11 @@ function iconFromName(name) {
 		case "github":
 			return <SiGithub />;
 		default:
-			return <BsGlobe />;
+			return <FiLink />;
 	}
 }
 
-const Links = ({ links, align = "center" }) => {
+const Links = ({ links, align = "center", margin="mt-6" }) => {
 	const linkElements = links.map((link, idx) => {
 		if (!link.link) {
 			return <></>;
@@ -41,7 +41,7 @@ const Links = ({ links, align = "center" }) => {
 	return (
 		<div
 			id="links-wrapper"
-			className={"flex flex-row mt-6 " + alignClasses}
+			className={`flex flex-row ${alignClasses} ${margin}`}
 		>
 			{linkElements}
 		</div>

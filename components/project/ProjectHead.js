@@ -16,8 +16,7 @@ const ProjectHead = ({ project }) => {
 	return (
 		<>
 			<PageHead title={project.title} description={project.overview} />
-			<Links align="left" links={links} />
-			<hr className="mt-14" />
+			<Links align="left" margin="mt-4" links={links} />
 		</>
 	);
 };
