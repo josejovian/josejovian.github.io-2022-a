@@ -44,7 +44,7 @@ export const Home = ({ featured }) => {
 	);
 }
 
-export const getServerSideProps = async (req) => {
+export const getStaticProps = async (req) => {
 	const { getProjects, extractDataFromProjects } = require("../lib/mdx");
 
 	const projects = await getProjects();
@@ -53,7 +53,8 @@ export const getServerSideProps = async (req) => {
 	return {
 		props: {
 			featured: data.filter((datum) => datum.featured)
-		}
+		},
+		revalidate: 300
 	};
 };
 

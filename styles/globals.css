@@ -133,14 +133,15 @@
 		@apply my-2 font-light text-sm;
 	}
 
-	.header-link {
-		@apply flex flex-row justify-center items-center;
-		margin: 0rem 0.5rem;
-	}
 	.header-link > svg {
 		margin: 0rem 0.5rem;
 		width: 1.6rem;
 		height: 1.6rem;
+	}
+
+	.header-link-first > svg {
+		margin: 0rem;
+		margin-right: 0.5rem;
 	}
 
 	/* Card component */
@@ -233,20 +234,20 @@
 	/* -------------------------------------------------------------------------- */
 
 	/* Force headers and pragraphs to the left instead of center */
-	#body-markdown :is(h1, h2, h3, .page-head-desc) {
+	#body-markdown :is(h1, h2, h3, .page-head-desc, *#links-wrapper) {
 		@apply text-left;
 	}
 
-	#body-markdown :is(a, a:hover, a:active, a:focus) {
+	#body-markdown *:not(*#links-wrapper) :is(a, a:hover, a:active, a:focus) {
 		border-bottom: 1px solid;
 		transition: all 200ms;
 	}
 
-	#body-markdown :is(a, a:hover) {
+	#body-markdown *:not(*#links-wrapper) :is(a, a:hover) {
 		@apply text-teal-600;
 	}
 
-	#body-markdown :is(a:active, a:focus) {
+	#body-markdown *:not(*#links-wrapper) :is(a:active, a:focus) {
 		@apply bg-teal-100;
 	}
 

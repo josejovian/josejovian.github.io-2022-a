@@ -13,6 +13,7 @@ import Links from "../../components/generic/Links";
 import SEO from "../../components/SEO";
 import Side from "../../components/project/Side";
 import ReactDOM from "react-dom";
+import ProjectHead from "../../components/project/ProjectHead";
 
 const Project = ({ code, frontmatter }) => {
 	const { id, title, techs, overview, repo, demo } = frontmatter;
@@ -68,7 +69,7 @@ const Project = ({ code, frontmatter }) => {
 			if (head.tagName === "H3") {
 				section.subsections.push({
 					name: head.innerText,
-					link: lineify(head.innerText)
+					link: lineify(head.innerText),
 				});
 			}
 
@@ -89,7 +90,7 @@ const Project = ({ code, frontmatter }) => {
 		<>
 			<div id="body-markdown" className="w-4/6">
 				<SEO templateTitle={title} description={overview} />
-				<PageHead title={title} description={overview} />
+				<ProjectHead project={frontmatter} />
 				<div className="image">
 					<Image
 						width="1280"
@@ -107,7 +108,21 @@ const Project = ({ code, frontmatter }) => {
 	);
 };
 
-export const getServerSideProps = async (req) => {
+export const getStaticPaths = async () => {
+	const { getProjects } = require("../../lib/mdx");
+
+	const projects = await getProjects();
+
+	return {
+		paths: projects.map((project) => ({
+			params: {
+				id: project.replace(".mdx", ""),
+			},
+		})),
+		fallback: false,
+	};
+};
+export const getStaticProps = async (req) => {
 	const { id } = req.params;
 	const { getProject } = require("../../lib/mdx");
 
@@ -127,6 +142,7 @@ export const getServerSideProps = async (req) => {
 
 	return {
 		props: { ...result },
+		revalidate: 300,
 	};
 };
 
