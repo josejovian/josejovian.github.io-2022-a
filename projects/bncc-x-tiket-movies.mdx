@@ -1,9 +1,9 @@
 ---
 id: bncc-x-tiket-movies
 title: BNCC x Tiket Movies
-published: '2021-03-17'
+published: '2022-03-17'
 techs: ["nextjs", "redux"]
-overview: A web application to view movies, which I contributed to in the final project the Frontend Development Bootcamp at BNCC Academy 2021/2022.
+overview: A web application to view movies, which I contributed to in the final project of the Frontend Development Bootcamp at BNCC Academy 2021/2022.
 demo: https://bncc-x-tiket-movies.netlify.app/
 repo: https://github.com/MaryantoCin/bncc-x-tiket-movies/
 featured: true
@@ -11,4 +11,35 @@ featured: true
 
 ## Project Overview
 
-Sample Text
+This is a final project of the **Frontend Development Bootcamp** at BNCC Academy 2021/2022, which I participated in. I worked on this project with four other people, and each of us worked on a specific part of the application.
+
+BNCC x Tiket Movies is an app where people can view new movies, search for movies, and add them to their favorite list. 
+
+## Tech Stacks and Libraries
+
+We mainly used NextJS. The following are other libraries or API that we use:
+- **TheMovieDB API**, to get movie data and TMDB account authentication.
+- **Axios**, to handle API calls.
+- **Redux**, for state management.
+- **Redux Persist**, to ensure that the states persist within pages, even if the user closes the tab, by saving the states in the user's local storage.
+
+## Highlighted Features
+
+### Account Login
+
+After a user inputs their TMDB username and password, clicking the login button will trigger three API calls, as parts of the authentication process with TMDB:
+- Get new token.
+- Validate the new token using the username and password, to create a new session.
+- Request for user data using the session ID.
+
+### View Profile
+
+Users can see the movies in their favorites. Visiting the page triggers an API call that will request for the user's favorites from TMDB.
+
+### Movie Search
+
+Users can search for movies using the search bar in the landing page. Clicking the search button will trigger an API call that will return movies, given the search query.
+
+### Add a Movie to Favorites
+
+When viewing a movie, logged in users can add it to their favorites by clicking a button. Clicking the button will trigger an API call to TMDB that will actually add the current movie to the user's favorites.
