@@ -7,9 +7,9 @@ const list = [
 		addon: 'October 2020 - October 2021',
 		description: (
 			<>
-				I had been managing and organizing the members' classes.
+				I had been managing and organizing the members&apos; classes.
 				 I also had been the head committee of the
-				workshop <b>"Let's Learn C Programming" BNCC &times; Course-Net</b>.
+				workshop <b>&#34;Let&apos;s Learn C Programming&#34; BNCC &times; Course-Net</b>.
 			</>
 		),
 	},
@@ -29,7 +29,7 @@ const list = [
 			<>
 				I had been a part of the committee of few events, 
 				such as <b>Branding Yourself with Social Media (Seminar)</b>&nbsp;
-				and <b>"Android for Future" Android Programming Workshop</b>.
+				and <b>&#34;Android for Future&#34; Android Programming Workshop</b>.
 				I also had assisted the LnT manager at the time to do their duties
 				as a LnT manager.
 			</>
