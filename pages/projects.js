@@ -7,7 +7,9 @@ import SEO from "../components/SEO";
 import styles from "../styles/Home.module.css";
 
 const Projects = ({ projects }) => {
-	const projectElements = projects.map((project) => (
+	const projectElements = projects.filter((project) => {
+		return !project.hidden
+	}).map((project) => (
 		<Card key={project.title} type="vertical" {...project} />
 	));
 
