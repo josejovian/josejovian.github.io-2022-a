@@ -33,7 +33,7 @@ export const getStaticProps = async (req) => {
 
 	return {
 		props: {
-			projects: data,
+			projects: data.filter((datum) => !datum.hidden),
 			revalidate: 300,
 		},
 	};
