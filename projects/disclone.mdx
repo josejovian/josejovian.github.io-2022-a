@@ -1,7 +1,7 @@
 ---
 id: disclone
 title: Disclone
-published: '2021-03-17'
+published: '2022-03-17'
 techs: ["react", "redux", "firebase"]
 overview: A personal project I've done to practice both Redux and Firebase.
 demo: https://advantageous-handle-91a30.netlify.app
@@ -18,11 +18,10 @@ Disclone is essentially a chatting application, where users can send and read me
 
 ## Tech Stacks and Libraries
 
-This project uses React, and Firebase. I also used Chakra UI for the styling.
+This project uses React, and Firebase. One important library that I used in this project is React Infinite Scroll, such that all chat messages are not rendered at once. I also used Chakra UI for the styling. 
 
 ## Highlighted Features
 
-### Real-Time Chat
+### Real-Time Channel and Chat Update
 
-In order to implement this, I simply used this [specific feature of Firebase](https://firebase.google.com/docs/database/web/read-and-write#web_value_events). When changes occur, the state to save messages are simply updated.
-In other words, when a new message is being sent on a specific channel, only the users who are in the current channel will see the redux state update.
+In order to implement this, I simply used this [specific feature of Firebase](https://firebase.google.com/docs/database/web/read-and-write#web_value_events). When changes occur within the messages of a channel, a redux state update (the messages) will occur, so the users who are currently viewing the channel will see this update (the new messages) in real time. Likewise, the users will also see the new channels as soon as they are created.

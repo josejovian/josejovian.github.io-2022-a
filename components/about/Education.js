@@ -3,8 +3,16 @@ import ParagraphList from "../ParagraphList";
 
 const list = [
 	{
+		name: "Shibaura Institute of Technology",
+		addon: 'April 2022 - July 2022',
+		description: `
+			I am currently in Japan, taking a Course Taking Sandwich
+			Program in Shibaura Institute of Technology for one semester.
+		`,
+	},
+	{
 		name: "BINUS University",
-		addon: '2019 - 2013',
+		addon: 'August 2019 - 2013',
 		description: `
 			I am majoring in Computer Science (Global Class).
 			I joined a student organization named Bina Nusantara
