@@ -7,9 +7,7 @@ import SEO from "../components/SEO";
 import styles from "../styles/Home.module.css";
 
 const Projects = ({ projects }) => {
-	const projectElements = projects.filter((project) => {
-		return !project.hidden
-	}).map((project) => (
+	const projectElements = projects.map((project) => (
 		<Card key={project.title} type="vertical" {...project} />
 	));
 
@@ -35,7 +33,7 @@ export const getStaticProps = async (req) => {
 
 	return {
 		props: {
-			projects: data,
+			projects: data.filter((datum) => !datum.hidden),
 			revalidate: 300,
 		},
 	};
