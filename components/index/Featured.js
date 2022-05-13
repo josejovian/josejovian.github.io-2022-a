@@ -1,16 +1,16 @@
 import AnimatedDiv from "../generic/AnimatedDiv";
-import Card from "../generic/Card";
 import Block from "../page/Block";
+import ProjectCard from "../project/ProjectCard";
 
 const Featured = ({ featured = [] }) => {
-	const featuredElement = featured.map((feat) => {
-		return <Card key={feat.title} {...feat} />;
-	});
-
 	return (
 		<Block>
 			<h2>Featured Projects</h2>
-			<AnimatedDiv>{featuredElement}</AnimatedDiv>
+			<AnimatedDiv>
+				{featured.map((feat) => {
+					return <ProjectCard key={feat.title} {...feat} />;
+				})}
+			</AnimatedDiv>
 		</Block>
 	);
 };
