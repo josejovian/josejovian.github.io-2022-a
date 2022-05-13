@@ -3,14 +3,11 @@ import Image from "next/image";
 import AnimatedDiv from "../components/generic/AnimatedDiv";
 import Card from "../components/generic/Card";
 import PageHead from "../components/page/PageHead";
+import ProjectCard from "../components/project/ProjectCard";
 import SEO from "../components/SEO";
 import styles from "../styles/Home.module.css";
 
 const Projects = ({ projects }) => {
-	const projectElements = projects.map((project) => (
-		<Card key={project.title} type="vertical" {...project} />
-	));
-
 	return (
 		<>
 			<SEO templateTitle="projects" />
@@ -19,7 +16,9 @@ const Projects = ({ projects }) => {
 				description="The projects I've contributed to."
 			/>
 			<AnimatedDiv className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-				{projectElements}
+				{projects.map((project) => (
+					<ProjectCard key={project.title} type="vertical" {...project} />
+				))}
 			</AnimatedDiv>
 		</>
 	);

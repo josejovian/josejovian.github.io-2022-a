@@ -145,18 +145,6 @@
 	}
 
 	/* Card component */
-	a .card {
-		@apply text-black transition-all font-normal;
-	}
-
-	a:hover .card {
-		@apply bg-teal-50 shadow-md;
-	}
-
-	:is(a:active, a:focus) .card {
-		@apply bg-teal-100;
-	}
-
 	.card-thumbnail * {
 		width: 384px !important;
 		height: 216px !important;
