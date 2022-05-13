@@ -8,7 +8,7 @@ import { bundleMDX } from "mdx-bundler";
 import { motion } from "framer-motion";
 
 import PageHead from "../../components/page/PageHead";
-import { TechElements } from "../../components/Tech";
+import { TechElements } from "../../components/project/Tech";
 import Links from "../../components/generic/Links";
 import SEO from "../../components/SEO";
 import Side from "../../components/project/Side";

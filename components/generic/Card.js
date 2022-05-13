@@ -31,7 +31,7 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 					<div
 						className={clsx("card-thumbnail border-gray-200 ", [
 							type === "vertical"
-								? "border-r-2 border-b-2 card-thumbnail-vertical"
+								? "border-r-0 border-b-2 card-thumbnail-vertical"
 								: "border-b-2 md:border-r-2 md:border-b-0",
 						])}
 					>
