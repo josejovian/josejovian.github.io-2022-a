@@ -40,7 +40,7 @@ const list = [
 const Experience = () => {
 	return (
 		<Block>
-			<h2>Organizational/Volunteering Experience</h2>
+			<h2>Organizational and Volunteering Experience</h2>
 			<ParagraphList list={list} />
 		</Block>
 	);
