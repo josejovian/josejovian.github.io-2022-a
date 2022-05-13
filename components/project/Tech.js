@@ -1,5 +1,5 @@
 import { SiReact, SiFirebase, SiRedux, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb } from "react-icons/si";
-import Tooltip from "./Tooltip";
+import Tooltip from "../Tooltip";
 
 const TechIcon = ({ tech }) => {
 	switch(tech) {
