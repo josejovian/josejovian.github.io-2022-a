@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^1.1.1",
     "esbuild": "^0.14.29",
     "framer-motion": "^6.2.8",
     "mdx-bundler": "^8.0.1",
