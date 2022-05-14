@@ -10,11 +10,11 @@ const list = [
 		description: (
 			<ul>
 				<li>
-					I had been managing and organizing the members&apos;
+					Had been managing and organizing the members&apos;
 					classes.
 				</li>
 				<li>
-					I also had been the head committee of the workshop{" "}
+					Had been the head committee of the workshop{" "}
 					<b>
 						&#34;Let&apos;s Learn C Programming&#34; BNCC &times;
 						Course-Net
