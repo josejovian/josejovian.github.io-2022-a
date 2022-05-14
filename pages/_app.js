@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Navigation />
-			<div id="body" className="body pageify w-full py-16 overflow-x-hidden">
+			<div id="body" className="body pageify w-full pt-16 pb-8 overflow-x-hidden">
 				<AnimatePresence
 					exitBeforeEnter
 					initial={false}
