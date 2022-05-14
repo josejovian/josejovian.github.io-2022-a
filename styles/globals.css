@@ -129,10 +129,6 @@
 		@apply mt-4 font-light text-center font-complete;
 	}
 
-	.paragraph-addon {
-		@apply my-2 font-light text-sm;
-	}
-
 	.header-link > svg {
 		margin: 0rem 0.5rem;
 		width: 1.6rem;
@@ -148,6 +144,12 @@
 	.card-thumbnail * {
 		width: 384px !important;
 		height: 216px !important;
+		display: flex !important;
+	}
+
+	.card-icon * {
+		width: 48px !important;
+		height: 48px !important;
 		display: flex !important;
 	}
 

@@ -26,7 +26,9 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 			)}
 			{...rest}
 		>
-			{variant === "thumbnail" ? (
+			{[variant === "default" && (
+				children
+			), variant === "thumbnail" && (
 				<>
 					<div
 						className={clsx("card-thumbnail border-gray-200 ", [
@@ -40,16 +42,35 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 							width="1280"
 							height="720"
 							src={image.src}
-							alt={`Thumbnail of ${image.title}`}
+							alt={image.title}
 						/>
 					</div>
 					<div className="card-detail flex flex-col px-8 py-8 h-max">
 						{children}
 					</div>
 				</>
-			) : (
-				children
-			)}
+			), variant === "icon" && (
+				<>
+					<div
+						className={clsx("card-icon py-8 pl-8 pr-4", [
+							type === "vertical"
+								? "card-icon-vertical"
+								: "",
+						])}
+					>
+						<Image
+							id={image.identifier}
+							width="48"
+							height="48"
+							src={image.src}
+							alt={image.title}
+						/>
+					</div>
+					<div className="card-detail flex flex-col pl-4 pr-8 py-8 h-max">
+						{children}
+					</div>
+				</>
+			), ]}
 		</div>
 	);
 };
