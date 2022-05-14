@@ -141,6 +141,14 @@
 	}
 
 	/* Card component */
+	a:is(:focus,:active) .card {
+		@apply bg-teal-200;
+	}
+
+	a:is(:focus,:active) .card-title {
+		@apply font-bold;
+	}
+
 	a:hover .card-title {
 		@apply underline;
 	}

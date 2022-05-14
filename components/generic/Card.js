@@ -11,8 +11,6 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 				"text-left border-2 rounded-md overflow-hidden",
 				"text-black transition-all font-normal",
 				"hover:bg-teal-50 hover:shadow-md",
-				"active:bg-teal-100",
-				"focus:bg-teal-100",
 				[
 					variant === "default" && [
 						"p-4 flex-col"
