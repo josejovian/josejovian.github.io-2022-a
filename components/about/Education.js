@@ -28,7 +28,7 @@ const list = [
 	},
 	{
 		name: "SMA Citra Berkat",
-		icon: "https://media-exp1.licdn.com/dms/image/C560BAQEFIZ8GzdwqwQ/company-logo_200_200/0/1589011860582?e=1660780800&v=beta&t=m9hTcOfjXhi__QcQThJYmmZC2PgSwRbEcpJ1GDXWvJQ",
+		icon: "",
 		addon: '2016 - 2019',
 		description: ["I majored in Natural Sciences."],
 	},

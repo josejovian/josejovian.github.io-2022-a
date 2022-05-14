@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Picture from "./Picture";
 
 const Card = ({ children, className, variant="default", type, image, ...rest }) => {
 	return (
@@ -37,11 +38,14 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 								: "border-b-2 md:border-r-2 md:border-b-0",
 						])}
 					>
-						<Image
+						<Picture
 							id={image.identifier}
 							width="1280"
 							height="720"
 							src={image.src}
+							fallback={{
+								src: "/fallback-thumbnail.webp",
+							}}
 							alt={image.title}
 						/>
 					</div>
@@ -58,11 +62,14 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 								: "",
 						])}
 					>
-						<Image
+						<Picture
 							id={image.identifier}
 							width="48"
 							height="48"
 							src={image.src}
+							fallback={{
+								src: "/fallback-icon.webp",
+							}}
 							alt={image.title}
 						/>
 					</div>
