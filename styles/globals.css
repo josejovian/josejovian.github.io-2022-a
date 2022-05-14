@@ -141,6 +141,10 @@
 	}
 
 	/* Card component */
+	a .card-title {
+		@apply underline;
+	}
+	
 	.card-thumbnail * {
 		width: 384px !important;
 		height: 216px !important;
@@ -243,8 +247,7 @@
 
 	/* Sidebar (only for Project pages) */
 	#sidebar {
-		@apply fixed flex flex-col h-screen border-l border-gray-200 bg-gray-100;
-		position: fixed !important;
+		@apply hidden lg:fixed lg:flex flex-col h-screen border-l border-gray-200 bg-gray-100;
 		top: 0 !important;
 		right: 0 !important;
 		padding-top: 8rem;
