@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Picture from "./Picture";
 
 const Card = ({ children, className, variant="default", type, image, ...rest }) => {
 	return (
@@ -26,7 +27,9 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 			)}
 			{...rest}
 		>
-			{variant === "thumbnail" ? (
+			{[variant === "default" && (
+				children
+			), variant === "thumbnail" && (
 				<>
 					<div
 						className={clsx("card-thumbnail border-gray-200 ", [
@@ -35,21 +38,46 @@ const Card = ({ children, className, variant="default", type, image, ...rest }) 
 								: "border-b-2 md:border-r-2 md:border-b-0",
 						])}
 					>
-						<Image
+						<Picture
 							id={image.identifier}
 							width="1280"
 							height="720"
 							src={image.src}
-							alt={`Thumbnail of ${image.title}`}
+							fallback={{
+								src: "/fallback-thumbnail.webp",
+							}}
+							alt={image.title}
 						/>
 					</div>
 					<div className="card-detail flex flex-col px-8 py-8 h-max">
 						{children}
 					</div>
 				</>
-			) : (
-				children
-			)}
+			), variant === "icon" && (
+				<>
+					<div
+						className={clsx("card-icon py-8 pl-8 pr-4", [
+							type === "vertical"
+								? "card-icon-vertical"
+								: "",
+						])}
+					>
+						<Picture
+							id={image.identifier}
+							width="48"
+							height="48"
+							src={image.src}
+							fallback={{
+								src: "/fallback-icon.webp",
+							}}
+							alt={image.title}
+						/>
+					</div>
+					<div className="card-detail flex flex-col pl-4 pr-8 py-8 h-max">
+						{children}
+					</div>
+				</>
+			), ]}
 		</div>
 	);
 };

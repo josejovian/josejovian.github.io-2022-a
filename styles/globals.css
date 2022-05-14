@@ -120,17 +120,13 @@
 	}
 
 	.image img {
-		border: 1px solid #e5e7eb !important;
+		border: 2px solid #e5e7eb !important;
 		@apply rounded-lg;
 	}
 
 	/* Page head component */
 	.page-head-desc {
 		@apply mt-4 font-light text-center font-complete;
-	}
-
-	.paragraph-addon {
-		@apply my-2 font-light text-sm;
 	}
 
 	.header-link > svg {
@@ -148,6 +144,12 @@
 	.card-thumbnail * {
 		width: 384px !important;
 		height: 216px !important;
+		display: flex !important;
+	}
+
+	.card-icon * {
+		width: 48px !important;
+		height: 48px !important;
 		display: flex !important;
 	}
 
