@@ -21,7 +21,7 @@ const ProjectCard = ({ id, title, techs, overview, type = "horizontal" }) => {
 						}}
 						type={type}
 					>
-						<h3 className="limit-text card-title font-light">
+						<h3 className="limit-text card-title">
 							{title}
 						</h3>
 						<div className="flex flex-row mt-3">

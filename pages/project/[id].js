@@ -88,7 +88,7 @@ const Project = ({ code, frontmatter }) => {
 
 	return (
 		<>
-			<div id="body-markdown" className="w-4/6">
+			<div id="body-markdown" className="w-full lg:w-4/6">
 				<SEO templateTitle={title} description={overview} />
 				<ProjectHead project={frontmatter} />
 				<div className="image">
