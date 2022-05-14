@@ -110,9 +110,13 @@ const Navigation = () => {
 			className="pageify flex align-center justify-center fixed top-0 w-full border-b border-gray-200 shadow-sm bg-gray-800 overflow-hidden z-20"
 		>
 			<div id="navbar" className="flex flex-row align-center justify-between w-full h-full text-sm sm:text-base">
-				<div className='self-center py-4 h-min font-["Nunito"] font-semibold text-white'>
-					josejovian
-				</div>
+				<Link href="/">
+					<a>
+						<div className='self-center py-4 h-min font-["Nunito"] font-semibold text-white'>
+							josejovian
+						</div>
+					</a>
+				</Link>
 				<div className="flex overflow-hidden">{linkElements}</div>
 			</div>
 		</div>
