@@ -141,7 +141,7 @@
 	}
 
 	/* Card component */
-	a .card-title {
+	a:hover .card-title {
 		@apply underline;
 	}
 	
