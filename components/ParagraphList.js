@@ -6,8 +6,8 @@ const ParagraphList = ({ list }) => {
 		<div>
 			{list.map(({ name, addon, description }) => {
 				return (
-					<AnimatedDiv className="first:mt-0 mt-8">
-						<Card key={name}>
+					<AnimatedDiv key={name} className="first:mt-0 mt-8">
+						<Card>
 							<h3 className="my-2">{name}</h3>
 							<p className="paragraph-addon">{addon}</p>
 							<div className="paragraph">
