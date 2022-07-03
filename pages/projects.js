@@ -15,11 +15,13 @@ const Projects = ({ projects }) => {
 				title="Projects"
 				description="The projects I've contributed to."
 			/>
-			<AnimatedDiv className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
 				{projects.map((project) => (
-					<ProjectCard key={project.title} type="vertical" {...project} />
+					<AnimatedDiv key={project.title}>
+						<ProjectCard type="vertical" {...project} />
+					</AnimatedDiv>
 				))}
-			</AnimatedDiv>
+			</div>
 		</>
 	);
 };

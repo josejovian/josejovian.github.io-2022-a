@@ -3,11 +3,16 @@ import Navigation from "../components/page/Navigation";
 import Footer from "../components/page/Footer";
 import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { animVariants } from "../components/generic/AnimatedDiv";
+import Modal, { ModalContext } from "../components/generic/Modal";
 
 function MyApp({ Component, pageProps }) {
 	const link = useRouter();
+	const [modal, setModal] = useState({
+		container: true,
+		content: null,
+	});
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -53,7 +58,16 @@ function MyApp({ Component, pageProps }) {
 						className=""
 						key={link.pathname}
 					>
-						<Component {...pageProps} key={link.pathname} />
+						
+						<ModalContext.Provider
+							value={{
+								modal: modal,
+								setModal: setModal,
+							}}
+						>
+							<Modal />
+							<Component {...pageProps} key={link.pathname} />
+						</ModalContext.Provider>
 					</motion.div>
 				</AnimatePresence>
 				<Footer />

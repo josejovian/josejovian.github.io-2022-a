@@ -7,8 +7,8 @@ export const animVariants = {
 		x: 0,
 		y: 0,
 		transition: {
-			staggerChildren: 0.05,
 			when: "beforeChildren",
+			staggerChildren: 0.05,
 		},
 	},
 	exit: { opacity: 0, x: 0, y: 0 },
@@ -16,13 +16,13 @@ export const animVariants = {
 
 const AnimatedDiv = ({ children, className }) => {
 	return (
-		<motion.div
+		<motion.article
 			variants={animVariants}
 			exit={animVariants.exit}
 			className={className}
 		>
 			{children}
-		</motion.div>
+		</motion.article>
 	);
 };
 

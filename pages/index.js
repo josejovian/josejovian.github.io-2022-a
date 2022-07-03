@@ -5,6 +5,9 @@ import Links from "../components/generic/Links";
 import PageHead from "../components/page/PageHead";
 import SEO from "../components/SEO";
 import styles from "../styles/Home.module.css";
+import Education from "../components/about/Education";
+import Experience from "../components/about/Experience";
+import AnimatedDiv from "../components/generic/AnimatedDiv";
 
 const links = [{
 	type: "github",
@@ -39,7 +42,9 @@ export const Home = ({ featured }) => {
 					</>
 				}
 			/>
-			<Featured featured={featured} />
+				<Featured featured={featured} />
+				<Education />
+				<Experience />
 		</>
 	);
 }
