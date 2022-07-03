@@ -8,8 +8,8 @@ const Featured = ({ featured = [] }) => {
 			<div name="featured-project">
 				{featured.map((feat, idx) => {
 					return (
-						<AnimatedDiv>
-							<ProjectCard className={idx > 0 && "mt-8"} key={feat.title} {...feat} />
+						<AnimatedDiv key={feat.title}>
+							<ProjectCard className={idx > 0 && "mt-8"} {...feat} />
 						</AnimatedDiv>
 					);
 				})}
