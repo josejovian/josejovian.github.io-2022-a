@@ -23,7 +23,7 @@ const Side = ({ table }) => {
 	});
 
 	return (
-		<motion.div
+		<motion.aside
 			id="sidebar"
 			variants={{
 				hidden: {
@@ -41,7 +41,7 @@ const Side = ({ table }) => {
 			exit={{ opacity: 0 }}
 		>
 			{linkElements}
-		</motion.div>
+		</motion.aside>
 	);
 };
 
