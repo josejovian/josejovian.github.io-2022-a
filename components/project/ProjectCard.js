@@ -5,14 +5,15 @@ import { TechElements } from "./Tech";
 import AnimatedDiv from "../generic/AnimatedDiv";
 import Card from "../generic/Card";
 
-const ProjectCard = ({ id, title, techs, overview, type = "horizontal" }) => {
+const ProjectCard = ({ id, title, techs, overview, type = "horizontal", className }) => {
 	const identifier = `card-${title}-thumbnail`;
 
 	return (
-		<AnimatedDiv>
+		<article>
 			<Link href={`/project/${encodeURIComponent(id)}`}>
 				<a>
 					<Card
+						className={className}
 						variant="thumbnail"
 						image={{
 							identifier,
@@ -33,7 +34,7 @@ const ProjectCard = ({ id, title, techs, overview, type = "horizontal" }) => {
 					</Card>
 				</a>
 			</Link>
-		</AnimatedDiv>
+		</article>
 	);
 };
 
