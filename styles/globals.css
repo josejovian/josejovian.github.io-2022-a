@@ -28,7 +28,7 @@
 		@apply font-complete font-bold text-center text-6xl text-teal-600;
 	}
 	h2 {
-		@apply font-complete font-bold text-center text-4xl text-teal-600 mt-16 mb-4;
+		@apply font-complete font-bold text-center text-4xl text-teal-600 mt-16 mb-8;
 	}
 	h3 {
 		@apply text-2xl font-bold text-teal-600 my-4;
@@ -229,6 +229,11 @@
 	.tooltip-ready {
 		top: -2.25rem;
 		opacity: 1;
+	}
+
+	/* Modal */
+	.picture-modal {
+		width: clamp(32em, 50vw, 64rem);
 	}
 
 	/* -------------------------------------------------------------------------- */
